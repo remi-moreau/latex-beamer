@@ -1,0 +1,170 @@
+
+%\swapnumbers % use "1.4 Theorem" instead of "Theorem 1.4"
+
+% ===========================================
+% -------- SYMBOLIC SHORTCUTS ---------------
+% ===========================================
+
+% iff, definition iff, and idea iff
+\newcommand{\ssi}{\ensuremath{\ \text{iff}\ }}
+\newcommand{\ssid}{\ensuremath{\overset{\triangle}{\ \text{iff}\ }}}
+\newcommand{\ssiidea}{\ensuremath{\overset{\star}{\ \text{iff}\ }}}
+
+
+% i.e. and definition i.e.
+\newcommand{\ied}{\ensuremath{\overset{\triangle}{\ \text{i.e.}\ }}}
+\newcommand{\idest}{\ensuremath{\ \text{i.e.}\ }}
+
+% independence
+\newcommand{\indep}{\mathrel{\perp\!\!\!\perp}}
+
+% quickly typeset a readable function mapping
+\newcommand{\nicefunc}[5]{%
+  \setlength{\arraycolsep}{3pt}%
+  \begin{array}{rcl}
+    #1 : #2 & \longrightarrow & #3 \\[3pt]
+    #4 & \longmapsto & #5
+  \end{array}%
+}
+
+
+
+
+
+
+
+% ===========================================
+% ----- THEOREM ENVIRONMENT DEFINITIONS -----
+% ===========================================
+\usepackage{amsthm}
+
+\theoremstyle{definition}% use "plain" for default
+\newtheorem*{thm}{Theorem}
+\newtheorem*{lem}{Lemma}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{cor}{Corollary}
+\newtheorem*{KL}{Klein's Lemma}
+\newtheorem*{conjecture}{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem*{defn}{Definition}
+\newtheorem*{exmp}{Example}
+\newtheorem*{xca}{Exercise}
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{case}{Case}
+
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{xcolor}
+
+
+
+
+
+\definecolor{lightgray}{gray}{0.95}
+
+\mdfdefinestyle{graybox}{
+  backgroundcolor=lightgray,
+  linecolor=gray,
+  linewidth=0pt, % 0.6 for a normal line
+  roundcorner=0pt, % 6 for slightly rounded corners
+  innertopmargin=0pt,
+  innerbottommargin=10pt,
+  innerleftmargin=10pt,
+  innerrightmargin=10pt
+}
+
+\definecolor{lightorange}{RGB}{255, 245, 225}
+
+\mdfdefinestyle{orangebox}{
+  backgroundcolor=lightorange,
+  linecolor=orange!60!black,
+  linewidth=0pt, % 0.6 for a normal line
+  roundcorner=0pt, % 6 for slightly rounded corners
+  innertopmargin=0pt,
+  innerbottommargin=10pt,
+  innerleftmargin=10pt,
+  innerrightmargin=10pt
+}
+
+
+% Define the light mint color
+\definecolor{lightmint}{RGB}{220, 255, 220}
+
+% Define the mint box style
+\mdfdefinestyle{mintbox}{
+  backgroundcolor=lightmint, % Light mint background color
+  linecolor=green!60!black, % Border color
+  linewidth=0pt, % Border width (0pt means no visible border)
+  roundcorner=0pt, % Square corners (0pt) or rounded (e.g. 6pt)
+  innertopmargin=0pt, % Top inner margin
+  innerbottommargin=10pt, % Bottom inner margin
+  innerleftmargin=10pt, % Left inner margin
+  innerrightmargin=10pt % Right inner margin
+}
+
+
+% Very light pink color (adjust if needed)
+\definecolor{lightpink}{RGB}{255, 238, 243}
+% Light pink box style
+\mdfdefinestyle{pinkbox}{
+  backgroundcolor=lightpink, % Very light pink background
+  linecolor=pink!50!black, % Subtle pink/gray border
+  linewidth=0pt, % No visible border (set 1pt for a light border)
+  roundcorner=0pt, % Square corners (set 6pt for rounded)
+  innertopmargin=0pt,
+  innerbottommargin=10pt,
+  innerleftmargin=10pt,
+  innerrightmargin=10pt
+}
+
+
+
+
+
+
+
+
+
+
+\usepackage{etoolbox} % required for surroundwithmdframed
+
+\surroundwithmdframed[style=orangebox]{thm}
+\surroundwithmdframed[style=graybox]{defn}
+\surroundwithmdframed[style=mintbox]{prop}
+\surroundwithmdframed[style=mintbox]{cor}
+\surroundwithmdframed[style=pinkbox]{conjecture}
+
+
+
+
+% ===========================================
+% ---------- PROOF BOX ----------------------
+% ===========================================
+
+% Define the box style for proofs
+\mdfdefinestyle{dembox}{
+  backgroundcolor=none,      % transparent background
+  linecolor=black,           % line color
+  linewidth=3pt,             % line thickness
+  leftline=true,             % line only on the left
+  topline=false,             % no top line
+  bottomline=false,          % no bottom line
+  rightline=false,           % no right line
+  innertopmargin=0pt,        % inner margins
+  innerbottommargin=10pt,
+  innerleftmargin=10pt,
+  innerrightmargin=10pt
+}
+
+% Define the "dem" environment (for proofs)
+\newenvironment{dem}[1][Proof]{%
+  \begin{mdframed}[style=dembox]
+  \noindent\textbf{#1.}\quad
+}{%
+  \hfill $\square$
+  \end{mdframed}
+}
+

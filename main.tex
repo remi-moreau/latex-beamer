@@ -1,0 +1,90 @@
+% ===========================================
+% ------------ DOCUMENT GLOBAL --------------
+% ===========================================
+
+\documentclass[aspectratio=169,11pt]{beamer}
+% Aspect ratio guide:
+% - aspectratio=169 for widescreen slides (16:9)
+% - aspectratio=43  for standard slides (4:3)
+
+
+% ===========================================
+% --------------- PACKAGES ------------------
+% ===========================================
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% \usepackage[french]{babel} % uncomment for french presentations
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+% Bibliography support (biblatex + biber)
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\addbibresource{references.bib}
+
+\input{theme/colors}
+\input{theme/fonts}
+\input{theme/metadata}
+\input{theme/macros}
+\input{theme/layout}
+
+
+
+
+
+% ===========================================
+% --------- DOCUMENT STRUCTURE --------------
+% ===========================================
+\begin{document}
+
+% ---------------------
+% Title 
+% ---------------------
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% ---------------------
+% Introduction (optional)
+% ---------------------
+\input{sections/01_introduction} % comment to remove the introduction
+
+% ---------------------
+% Outline settings
+% ---------------------
+\begin{frame}{Outline} % comment this block to remove the outline
+  \tableofcontents
+\end{frame}
+
+% -----------------
+% Main content
+% -----------------
+
+\input{sections/10_section1}
+
+\input{sections/20_section2}
+
+
+% ----------
+% Conclusion
+% ----------
+\input{sections/90_conclusion}
+
+
+% ---------
+% Appendices
+% ---------
+\appendix
+\input{sections/91_appendices}
+
+% -----------
+% Bibliography (optional: uncomment to include)
+% -----------
+\input{sections/99_bibliography}
+
+
+\end{document}

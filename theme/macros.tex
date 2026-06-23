@@ -1,0 +1,32 @@
+% Reusable frame macros
+\newcommand{\SectionTitleFrame}[1]{%
+  \begin{frame}[plain]
+    \vfill
+    \centering
+    {\usebeamerfont{title}\color{MainBlue}#1\par}
+    \vfill
+  \end{frame}
+}
+
+\newcommand{\SectionFrame}[2]{%
+  \begin{frame}{#1}
+    #2
+  \end{frame}
+}
+
+\newcommand{\TakeawayFrame}[2]{%
+  \begin{frame}{#1}
+    \begin{block}{Key message}
+      #2
+    \end{block}
+  \end{frame}
+}
+
+\newcommand{\QandAFrame}{%
+  \begin{frame}[plain]
+    \vfill
+    \centering
+    {\LARGE Questions?}
+    \vfill
+  \end{frame}
+}
