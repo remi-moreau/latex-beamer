@@ -23,6 +23,14 @@ Minimal and customizable Beamer template, with a single entry point in `main.tex
    **Important**: if you use the Latex Workshop extension, you should set its setting `"latex-workshop.latex.recipe.default"` to `"latexmk (latexmkrc)"`. 
    Otherwise, the autocompile functionality could ignore the `.latexmkrc` file and put all the build artefacts directly in the project root, which you probably want to avoid.
 
+## Troubleshooting
+
+If you encounter compilation problems with the Latex Workshop extension of VS Code:
+* Delete the `build/` directory (and all its content);
+* Reload your VSCode window (CTRL+Shift+P > Developer: Reload Window);
+* Try to compile manually with `latexmk -pdf -interaction=nonstopmode main.tex`;
+* If it compiled successfuly, reload your VSCode window again. The auto-compile functionality of Latex Workshop should work again.
+
 ## Structure
 
 - `main.tex`: presentation orchestration (sections enabled or disabled).
